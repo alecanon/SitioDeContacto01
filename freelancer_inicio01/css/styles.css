@@ -1,0 +1,301 @@
+:root {   /*formas de almacenar variables*/
+    --blanco: #ffffff; /*estas son variables por lo tanto llevan : y ; (pendiente)*/
+    --Negro:#212121;   /*estas son variables por lo tanto llevan : y ; (pendiente)*/
+    --Primario: #ffc107;  /*estas son variables por lo tanto llevan : y ; (pendiente)*/
+    --Secundario: #0097A7;  /*estas son variables por lo tanto llevan : y ; (pendiente)*/
+    --Gris: #757575;   /*estas son variables por lo tanto llevan : y ; (pendiente)*/ 
+    --fuente-principal: 3.8rem;  /*Se puede almacenar cualquier tipo de valores en estos root*/
+    --GrisClaro: #dfe9f3; 
+}
+html {
+    font-size: 62.5%;
+    box-sizing: border-box; /*38.Hack para el box model, Es para un mejor solucion de padding */
+    scroll-snap-type: y mandatory; /*50. Esto es para ajustar el Scroll en el eje Y en todo el archivo*/
+    /*pendiente quitar scroll mandatory*/
+}
+
+/**     Scroll Snap       **/
+.servicios, .navegación-principal, .formulario {
+    scroll-snap-align: center;  /*50. Configuracion del SCROLL*/
+    scroll-snap-stop: always;   /*50. Configuracion del Scroll a la navegqción principal*/
+
+}
+
+*, *:before, *:after {  /*38.Selector universal, buenas para un mejor responsive y buenas practicas*/      
+    box-sizing: inherit;
+}
+
+body {              
+    font-size: 16px; /*1 rem = 10 px*/ /*Son mejor los rem por que se adptan mejor a las pantallas grandes y tienen mejor responsive que px*/
+    font-family: 'Roboto', sans-serif; /*Primero debe estás descargada la primera parte en el html, No cargar muchas, se pone pesado el sitio*/
+    /* background-color:var(--blanco); */
+    background-image: linear-gradient(to top, var(--GrisClaro) 0%,var(--blanco) 100%);  /*con liner gradiente DIFUMINAR EL COLOR Y con TO top se cambia la DIRECCION ARRIBA/ABAJO ETC ..*/
+
+}
+
+.contenedor {
+    max-width: 120rem;   /**Tamaño del margen 36. Es importante ponerle max wid para que el responsive no se cuelgue
+    /* margin-top: 0px;  Margenes
+    /* margin-right: auto; 
+    /* margin-bottom: 0;  
+    /*  margin-left: auto; */
+    margin: 0 auto; /*29.El entiende que el margen de arriba y abajo es automatico pero tambien se puede auto 0 auto 0 */
+}
+.boton {       /*Caracteristicas BOTON*/  
+    background-color: var(--Secundario);  /*41.Creacion de boton */
+    color: var(--blanco);                 /*41.Creacion de boton */
+    padding: 1rem 3rem;                 /*La posicion del boton */
+    margin-top: 1rem;                   /*Margen del boton */
+    font-size: 2rem;                    /*tamaño de la fuente dentro del boton*/
+    text-decoration: none;              /*Quitar la linea de abajo del boton */
+    text-transform: uppercase;          /*Para poner las palabra del boton en MAYUSCULAS*/
+    font-weight: bold;                  /*Para poner las palabras en NEGRITA*/
+    border-radius: .5rem;               /*Para ajustarle BORDES de .5rem*/
+    width: 80%;                         /*Para LOGINTUD BOTON*/
+    text-align: center;
+    border: none;                       /*49. Quitar el supuesto borde feo que tiene por default */
+}
+
+@media (min-width: 768px ) { 
+    .boton{
+        width: auto;
+    }
+}
+
+.boton:hover {  /*Esto es para que aparezca la mano en el boton*/
+    cursor: pointer;  
+}
+
+h1 {                    /*TAMAÑO TIPOGRAFIAS*/
+    font-size: 3.8rem;  /*Esto es para darle tamaño a las tipografias con rem y no auto con pixeles*/
+} 
+
+h2 {
+    font-size: 2.8rem; /*Esto es para darle tamaño a las tipografias con rem y no auto con pixeles*/
+}
+
+h3 {
+    font-size: 1.8rem; /*Esto es para darle tamaño a las tipografias con rem y no auto con pixeles*/
+}
+h1,h2,h3{
+    text-align: center;
+}
+
+.titulo span{
+    font-size: 2rem;
+}
+
+.w-sm-100{
+    width: 100%;
+}
+@media (min-width: 768px) {
+    .w-sm-100{
+        width: auto;
+    }
+}
+
+.flex{
+    display: flex;
+    
+}
+.alinear-derecha{
+    justify-content: flex-end;
+    justify-content: center;
+}
+
+@media (min-width: 480px) {
+    .boton {
+        width: auto;
+    } 
+}
+/* Navegación Principal */
+
+.sombra { /*Esta sombra se descarga con la aplicación*/ 
+    /* https://www.cssmatic.com/es/box-shadow */
+    -webkit-box-shadow: 0px 15px 15px 0px rgba(0,0,0,0.54);
+    -moz-box-shadow: 0px 15px 15px 0px rgba(0,0,0,0.54);
+    box-shadow: 0px 15px 15px 0px rgba(0,0,0,0.54);
+    background-color: var(--blanco);   /*Fonde de la sombra, recuerda tambien agrega */
+    padding: 2rem;
+    border-radius: 2rem;   
+}
+.nav-bg {
+    background-color: var(--Secundario);
+}
+
+.navegación-principal {
+    display: flex;        /*32.Habilita en la barra de navegación la organización de los link*/
+    flex-direction: column; /*35.36 Esto es para que en el responsive se vuelvan los menú en una columna ((Teniendo en cuanta el paso de crear el archivo css.json .35))*/
+    scroll-snap-type: y mandatory; /*Para que pueda hacer scroll de arriba abajo bien*/ 
+    /*justify-content: space-between; /*32.El contenido que está en la barra de navegación se distribuye */
+    /* justify-conten
+    t: space-evenly; /*32.El contenido que está en la barra de navegación se distribuye */   
+}
+
+@media (min-width: 768px) {
+    .navegación-principal{
+        flex-direction: row;
+        justify-content: space-between; /*32.El contenido que está en la barra de navegación se distribuye */
+    }
+}
+.navegación-principal a {  
+    color: var(--blanco);  /*31. Color de las letras en la carra de navegación*/
+    text-decoration: none;  /*31. Para quitar el subrayado de las palabras en el menú de navegación*/
+    font-size: 2rem;
+    font-weight: 700;
+    padding: 1rem;        /*31. El ancho de la barra de navegación y agrega un poco más de espacio */
+}
+
+.navegación-principal a:hover { /*34.Tambien se utilizan algunos como visited, focus,star, tarjet etc .. muchos más  */
+    background-color: var(--Primario); /*34. Esto es para que la barra de amarillo se habilite cuando pasa el cursos encima*/
+    color: var(--Negro);
+}
+/*body{      /*Esto es para darle colores a los diferentes responsive *//*
+    background-color: yellow;
+}
+@media (min-width: 480px ) {
+    body {
+        background-color: azure;
+    }
+}
+@media (min-width: 768px ) {
+    body {
+        background-color:cornflowerblue;
+    }
+}*/ 
+.hero {  /*Imagen de fondo */
+    background-image: url(../img/hero.jpg); /*38.*/
+    background-repeat: no-repeat;           /*38.*/
+    background-size: cover;                 /*38.*/
+    height: 450px;
+    position: relative; /*para que tenga coordenadas de */
+    margin-bottom: 2rem;
+
+}
+.contenido-hero {
+    position: absolute;
+    background-color: rgba( 0,0,0, .7 );  /*39.opacidad en la imagen sin afectar los simbolos*/
+    background-color: rgb(0,0,0 / 70% ); /*39.pendiente arreglar 39 */
+    width: 100%;
+    height: 100%;
+
+    display: flex;         /* Con esto se alinea Horizontalmente */
+    flex-direction: column; /*esto es para que lo que se organice de manera vertical despues de habilitar la primera */
+    align-items: center;   /* Con esto se alinea Verticalmente */
+    justify-content: center; /*Con esto se alinea verticalmente  */  /* Si se necesita CENTRAR EL CONTENIDO SE usa estás lineas */
+
+}
+.contenido-hero h2, .contenido-hero p {
+    color: var(--blanco);
+}
+.contenido-hero .ubicacion {
+    display: flex;
+    align-items: flex-end;
+}
+
+
+
+/** SERVICIOS  **/    /** SERVICIOS  **/   /** SERVICIOS  **/
+
+@media (min-width: 768px) {
+    .servicios {
+        display: grid;  /*45. Agrega las propiedades de CCS grid (permite deficinir ubicacion y tamaño del contenido dentro de una area definida Grilla)*/
+        grid-template-columns: 1fr 1fr 1fr;  /*Este lo divide en fracciones*/
+        /*45. grid-template-columns: 33.3% 33.3% 33.3%;*/ 
+        /*45. grid-template-columns: 300px 300px; /*definir tamaño de las columnas*/
+        /*45. grid-template-rows: 200px 800px ;   /*Tamaño de los espacios horizontales*/
+        /*45. grid: 200px 800px / 300px 300px  /*Version avanzada  */
+        column-gap: 2rem; /*Separción de las columnas de los contenedores en SERVICIOS*/
+    }
+}
+
+.servicio {
+    display: flex;  /*47. Esto es para ajustar el tutulo del contenido que está dentro de la grilla*/
+    flex-direction: column; /*47. Esto es para ajustar el tutulo del contenido que está dentro de la grilla*/
+    align-items: center; /*47. Esto es para centrar contenido que está dentro de la grilla y hacerlo responsive*/
+}
+
+.servicio h3 {
+    color: var(--Secundario);   /*47. Escoger el color dentro del contenedor*/
+    font-weight: normal;        /*47. Escoger la fuente de la letra dentro del contenedor*/
+
+}
+.servicio p {
+    line-height: 2;     /*47. Texto centrado en los contenedores*/
+    text-align: center; /*47. Texto centrado en los contenedores*/
+}
+
+.servicio .iconos {
+    height: 15rem;  /*47. Alto de los iconos */
+    width: 15rem;   /*47. Ancho de los inconos*/
+    background-color: var(--Primario);  /*Color de los iconos*/
+    border-radius: 10%; /*47. border de los botones*/
+    display: flex;  /*47. Los Ubica uno frente al otro */
+    justify-content: space-evenly;/*47. Ubicalos en el centro de la grilla */
+    align-items: center;    /*47. Alinean  Vertical y horizontal mente*/
+}
+
+    /* CONTACTO 48. onfiguracion de CONTACTO */
+.formulario {
+    background-color: var(--Gris); /*COLOR FONDO */
+    width: min(60rem, 100% ); /*Utilizar el valor más pequeño para el tamaño del formulario*/
+    margin: auto;/*48. Esto es para centrar el contenido pero SOLO recomendado PARA FORMULARIOS*/
+    padding: 2rem;/*48. para que se aleje de los margenes y tenga ciertos margenes */
+    border-radius: 1rem; /*para redonder los bordes del formulario */
+}   
+
+.formulario fieldset{
+    border: none; /*48. Con esto quita el borde que el navegador le pone por defecto*/
+
+}
+
+.formulario legend {        /*caracteristicas del formulario*/
+    text-align: center;     /*Texto centrado Horizontalmente*/
+    font-size: 1.8rem;        /*Tamañano del Texto*/
+    text-transform: uppercase;  /*Para que se vuelva mayusculas*/
+    font-weight: 700;       /*Aplicar NEGRITAS*/
+    margin-bottom: 2rem;    /*Borde para que se separe un poco del texto*/
+    color: var(--Primario); /*Color texto */
+}
+@media (min-width: 768px ) {
+    .contenedor-campos{
+        display: grid;
+        grid-template-columns: 1fr 1fr ; /*50. Posicion final de los imput 1 fraccion 1 fraccion*/
+        grid-template-rows: auto auto 20rem; /*Configuracion de las columnas del contacto*/
+        column-gap: 1rem; /*Separación de columnas dentro del formulario*/
+    }
+
+    .campo:nth-child(3), .campo:nth-child(4) {  /*50. nth es para que solo funcione en uno de los campos en este caso en el campo 3*/
+        grid-column: 1 / 3 ;/*50. Cambiar el control de las posiciones del contenido*/
+    }
+}
+
+
+.campo {
+    margin-bottom: 1rem ;   /*49. Separación hacia abajo TAMAÑO FORMULARIO*/
+}
+
+.campo label {
+    color: var(--blanco);
+    font-weight: bold;      /*Aplicar NEGRITAS*/
+    margin-bottom: .5rem ;  /*Borde a los campos de texto*/
+    display: block; /*Todo el label toma el espacio disponible*/
+
+}
+
+.campo textarea{
+    height: 18rem; /*Altura 200px*/
+}
+
+.imput-text {
+    width: 100%; /*Tome todo espacio disponible*/
+    border: none; /*Para quitar un borde raro que treae por defecto*/
+    padding: 1.5rem;
+    border-radius: 1rem; /*Esquinas redondeadas */
+}
+
+/* Configuración FOOTER*/
+
+.footer {
+    text-align: center;
+}
